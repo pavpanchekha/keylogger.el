@@ -86,6 +86,18 @@ function finger_analysis(data) {
     sec.getElementsByClassName("sd")[0].innerHTML = Math.round(1000*sd) + " ms";
     sec.getElementsByClassName("ss")[0].innerHTML = Math.round(1000*ss) + " ms";
 
+    var same_position = [0, 0];
+    for (c = 0; c < 96; c++) {
+        // 97 * c = 96 * c + c
+        if (data[97*c]) {
+            same_position[0] += data[97*c][0];
+            same_position[1] += data[97*c][1];
+        }
+    }
+    var sp = same_position[0] / same_position[1];
+
+    sec.getElementsByClassName("sp")[0].innerHTML = Math.round(1000*sp) + " ms";
+
     var fastest_transition = 10000;
     var fastest_idx;
     var slowest_transition = 0;
