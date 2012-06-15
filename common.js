@@ -4,6 +4,6 @@ function idx_to_digraph(idx) {
 }
 
 function digraph_to_idx(idx) {
-    return (String.charCodeAt(0) - 32) * 96 +
-        (String.charCodeAt(1) - 32);
+    return (idx.charCodeAt(0) - 32) * 96 +
+        (idx.charCodeAt(1) - 32);
 }
