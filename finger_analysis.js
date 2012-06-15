@@ -82,9 +82,9 @@ function finger_analysis(data) {
     var sd = res.sd[0] / res.sd[1];
     var ss = res.ss[0] / res.ss[1];
     
-    sec.getElementsByClassName("d")[0].innerHTML  = Math.round(1000*d) + " milliseconds";
-    sec.getElementsByClassName("sd")[0].innerHTML = Math.round(1000*sd) + " milliseconds";
-    sec.getElementsByClassName("ss")[0].innerHTML = Math.round(1000*ss) + " milliseconds";
+    sec.getElementsByClassName("d")[0].innerHTML  = Math.round(1000*d) + " ms";
+    sec.getElementsByClassName("sd")[0].innerHTML = Math.round(1000*sd) + " ms";
+    sec.getElementsByClassName("ss")[0].innerHTML = Math.round(1000*ss) + " ms";
 
     var fastest_transition = 10000;
     var fastest_idx;

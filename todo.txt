@@ -1,0 +1,7 @@
+#+TITLE: Things to Do for keylogger.el
+
+* TODO Add variance and skewness measures per key
+* TODO Compute more statistics
+* TODO Separate same finger, same key from general same finger
+* TODO Allow entering a key pair and highlighting it on the graph
+

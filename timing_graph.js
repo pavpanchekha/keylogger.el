@@ -15,7 +15,7 @@ function timing_graph(data) {
         if (avg   > maxavg)   maxavg   = avg;
     }
 
-    ctx.fillStyle = "rgba(78, 154, 6, .6)"; // Tango dark green
+    ctx.fillStyle = "rgba(78, 154, 6, .8)"; // Tango dark green
     ctx.beginPath()
     for (var i in data) {
         var count = window.data[i][1];

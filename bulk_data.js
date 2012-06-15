@@ -11,7 +11,7 @@ function bulk_data(data) {
     }
 
     sec.getElementsByClassName("total")[0].innerHTML = total;
-    sec.getElementsByClassName("time")[0].innerHTML = Math.round(time) + " seconds";
+    sec.getElementsByClassName("time")[0].innerHTML = Math.round(time) + " s";
     sec.getElementsByClassName("transitions")[0].innerHTML =
         transitions + " (" + Math.round(100 * transitions / 96 / 96) + "%)";
 }
