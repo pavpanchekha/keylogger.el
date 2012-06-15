@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en_US">
+  <head>
+    <title>Summary of Inter-key Timings</title>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="graph.css" />
+  </head>
+  <body>
+    <article id="help">
+      <section>
+        <h1>Using <code>keystroke.el</code></h1>
+        <p>To use <code>keystroke.el</code>, you need to:</p>
+        <ol>
+          <li>Download <code>keystroke.el</code> from <a href="TODO">somewhere</a></li>
+          <li>Set up the Emacs end of the data collection by loading <code>keystroke.el</code> and running <kbd>remember-every-key-stroke</kbd>.</li>
+          <li>You actually probably want to set up Emacs to run <code>load-every-key-stroke</code> and then <code>remember-every-key-stroke</code> every time you start Emacs.</li>
+          <li>Next, use Emacs for a while.  Type something.  Write a story.  Hack.</li>
+          <li>Emacs will save keystroke data every half-hour; or, run <kbd>save-ever-key-stroke</kbd> to save immediately.</li>
+          <li>In the <code>keystroke.el</code> folder, run <code>translate.py</code>; it will convert Emacs's data into data consumable with JavaScript</li>
+          <li>Now open up <code>graph.html</code> in your favorite data; if you're viewing this page, you already know how.  Note that you'll need JavaScript to use the viewer properly.</li>
+        </ol>
+        <h1>Troubleshooting</h1>
+        <p>If you're having problems, have you checked that...</p>
+        <ul>
+          <li>You've saved some data in Emacs?</li>
+          <li>You've run <code>transform.py</code> lately?</li>
+          <li>You have an HTML5-supporting, JavaScript-enabled browser?</li>
+        </ul>
+      </section>
+    </article>
+    <article id="your_data">
+      <figure id="graph">
+        <canvas id="timing_graph" width="600" height="400"></canvas>
+        <figcaption>Frequency (vertical) versus duration (horizontal) of each key transition</figcaption>
+      </figure>
+      <section class="thin" id="bulk_data">
+        <p>Here are some basic statistics of the data you've collected.</p>
+        <table>
+          <tr> <th>Total Characters</th> <td class="total"></td> </tr>
+          <tr> <th>Key Transitions</th> <td class="transitions"></td> </tr>
+          <tr> <th>Typing Time</th> <td class="time"></td> </tr>
+        </table>
+        <p>Note that you're unlikely to ever try all 100% of the possible key transitions; for example, how often do you type <span class="distroke">(]</span>?</p>
+      </section>
+      <section class="thin" id="finger_analysis">
+        <p>It's faster to go between different hands than moving the same finger back and forth.</p>
+        <table>
+          <tr> <th>Different Hands</th> <td class="d"></td> </tr>
+          <tr> <th>Same Hands, Different Fingers</th> <td class="sd"></td> </tr>
+          <tr> <th>Same Hands, Same Fingers</th> <td class="ss"></td> </tr>
+        </table>
+        <p>By rough count, your slowest transition is <span class="distroke slowest"></span> and your fastest is <span class="distroke fastest"></span></p>
+      </section>
+    </article>
+    <script type="text/javascript">
+      window.data = void(0);
+      function load_data(data) {
+        for (var i in data) {
+          if (data[i][1] == 0) delete data[i];
+        }
+        window.data = data
+      }
+    </script>
+    <script type="text/javascript" src="common.js"></script>
+    <script type="text/javascript" src="timing_graph.js"></script>
+    <script type="text/javascript" src="bulk_data.js"></script>
+    <script type="text/javascript" src="finger_analysis.js"></script>
+    <script type="text/javascript" src="keys.jsonp"></script>
+    <script type="text/javascript">
+      document.getElementsByTagName("body")[0].className = "good";
+      timing_graph(window.data);
+      bulk_data(window.data);
+      finger_analysis(window.data);
+    </script>
+  </body>
+</html>

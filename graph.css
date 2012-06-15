@@ -1,0 +1,56 @@
+html, body { margin: 0; padding: 0; }
+
+article {
+    width: 1024px;
+    margin: 1em auto;
+}
+
+article#your_data {
+    display: none;
+}
+
+body.good article#your_data {
+    display: block;
+}
+
+body.good article#help {
+    display: none;
+}
+
+caption {
+    display: block;
+}
+
+figure#graph {
+    float: left;
+    margin: 0 10px;
+    padding: 5px;
+    border: 1px solid #204a87;
+    width: 612px;
+}
+
+section.thin {
+    width: 360px;
+    float: right;
+}
+
+span.distroke {
+    color: #4e9a06;
+    font-family: monospace;
+}
+
+table {
+    width: 90%;
+}
+
+th {
+    text-align: left;
+}
+
+th:after {
+    content: ": ";
+}
+
+figcaption {
+    text-align: center;
+}
