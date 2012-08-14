@@ -81,10 +81,12 @@ function finger_analysis(data) {
     var d  = (res.dd[0] + res.ds[0]) / (res.dd[1] + res.ds[1]);
     var sd = res.sd[0] / res.sd[1];
     var ss = res.ss[0] / res.ss[1];
+    var avg = (res.dd[0] + res.ds[0] + res.ss[0] + res.sd[0]) / (res.dd[1] + res.ds[1] + res.ss[1] + res.sd[1]);
     
     sec.getElementsByClassName("d")[0].innerHTML  = Math.round(1000*d) + " ms";
     sec.getElementsByClassName("sd")[0].innerHTML = Math.round(1000*sd) + " ms";
     sec.getElementsByClassName("ss")[0].innerHTML = Math.round(1000*ss) + " ms";
+    sec.getElementsByClassName("avg")[0].innerHTML = Math.round(1000*avg) + " ms";
 
     var same_position = [0, 0];
     for (c = 0; c < 96; c++) {
