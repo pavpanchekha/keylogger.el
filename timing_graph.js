@@ -1,6 +1,9 @@
+function draw_placeholder(ctx, x, y) {
+    ctx.fillText("__", x * 590, 400 - y * 400);
+}
+
 function draw_distroke(ctx, i, x, y) {
     ctx.fillText(idx_to_digraph(i), x * 590, 400 - y*400);
-    //ctx.arc(x, y, 5, 0, 2*Math.PI, false);
 }
 
 function timing_graph(data) {
@@ -16,8 +19,18 @@ function timing_graph(data) {
         if (avg   > maxavg)   maxavg   = avg;
     }
 
+    ctx.beginPath();
+    ctx.fillStyle = "#ddd";
+    ctx.font = "6pt monospace";
+    for (var i in data) {
+        var count = window.data[i][1];
+        var avg   = window.data[i][0] / count;
+        if (count >= 5) {
+            // Otherwise, not enough data to be meaningful
+            draw_placeholder(ctx, avg/maxavg, count/maxcount);
+        }
+    }
     ctx.fillStyle = "rgb(78, 154, 6)"; // Tango dark green
-    ctx.beginPath()
     for (var i in data) {
         var count = window.data[i][1];
         var avg   = window.data[i][0] / count;
