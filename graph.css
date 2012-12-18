@@ -1,8 +1,9 @@
 html, body { margin: 0; padding: 0; }
 
 article {
-    width: 1024px;
+    width: 1000px;
     margin: 1em auto;
+    padding: 12px;
 }
 
 article#your_data {
@@ -26,11 +27,11 @@ figure#graph {
     margin: 0 10px;
     padding: 5px;
     border: 1px solid #204a87;
-    width: 612px;
+    width: 600px;
 }
 
 section.thin {
-    width: 360px;
+    width: 348px;
     float: right;
 }
 
