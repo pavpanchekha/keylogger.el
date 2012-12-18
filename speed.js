@@ -8,21 +8,9 @@ function avg_time_total(data) {
     return {total: total, avg_time: time / total};
 }
 
-function space_frequency(data, total) {
-    // Get the 
-    var space = data.slice(digraph_to_idx("  "), digraph_to_idx("! "))
-        .map(function (x) {return x[1];});
-    var space_total = 0;
-    for (var i = 0; i < space.length; i++) {
-        space_total += space[i] || 0; // The ||0 filters out NaNs and similar
-    }
-
-    return space_total / total;
-}
-
 function avg_word(data) {
     var res = avg_time_total(data);
-    var avg_len = 1 / space_frequency(data, res.total);
+    var avg_len = avg_word_length(data, res.total);
     var avg_time = res.avg_time * avg_len;
     return {len: avg_len, time: avg_time, wpm: 60 / avg_time}; // 60 == secs in a minute
 }
