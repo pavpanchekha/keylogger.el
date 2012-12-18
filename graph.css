@@ -4,6 +4,7 @@ article {
     width: 1000px;
     margin: 1em auto;
     padding: 12px;
+    font-size: 10pt;
 }
 
 article#your_data {
@@ -33,6 +34,7 @@ figure#graph {
 section.thin {
     width: 348px;
     float: right;
+    clear: right;
 }
 
 span.distroke {
@@ -40,12 +42,21 @@ span.distroke {
     font-family: monospace;
 }
 
+p {
+    text-align: justify;
+}
+
 table {
     width: 90%;
+    margin: 0 auto;
 }
 
 th {
     text-align: left;
+}
+
+td {
+    text-align: right;
 }
 
 th:after {
