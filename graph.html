@@ -2,7 +2,6 @@
 <html lang="en_US">
   <head>
     <title>Summary of Inter-key Timings</title>
-    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="graph.css" />
   </head>
   <body>
@@ -47,12 +46,31 @@
         <p>It's faster to go between different hands than moving the same finger back and forth.</p>
         <table>
           <tr> <th>Different Hands</th> <td class="d"></td> </tr>
-          <tr> <th>Same Hands, Different Fingers</th> <td class="sd"></td> </tr>
-          <tr> <th>Same Hands, Same Fingers</th> <td class="ss"></td> </tr>
+          <tr> <th>Same Hand, Different Fingers</th> <td class="sd"></td> </tr>
+          <tr> <th>Same Hand, Same Fingers</th> <td class="ss"></td> </tr>
           <tr> <th>Double-tapping a Key</th> <td class="sp"></td> </tr>
           <tr> <th>Overall Average</th> <td class="avg"></td> </tr>
         </table>
         <p>By rough count, your slowest transition is <span class="distroke slowest"></span> and your fastest is <span class="distroke fastest"></span></p>
+      </section>
+      <section class="thin" id="speed">
+        <p>These data give a rough estimate of your real-world typing speed.</p>
+        <table>
+          <tr> <th>Average Word Length</th> <td class="len"></td> </tr>
+          <tr> <th>Typing Speed</th> <td class="wpm"></td> </tr>
+        </table>
+        <p>The numbers above are lower than what you get in a typing speed test; you type a lot of unusual character combinations and make a lot more mistakes in your everyday typing.</p>
+      </section>
+      <section class="thin" id="layouts">
+        <p>Everything above assumes you use a QWERTY layout by
+        default.  How fast would you type if you instead used a
+        different keyboard layout, assuming familiarity was not an
+        issue?</p>
+
+        <table>
+          <tr> <th>Dvorak</th> <td class="dvorak"></td> </tr>
+          <tr> <th>Colemak</th> <td class="colemak"></td> </tr>
+        </table>
       </section>
     </article>
     <script type="text/javascript">

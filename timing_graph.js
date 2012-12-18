@@ -1,9 +1,9 @@
 function draw_placeholder(ctx, x, y) {
-    ctx.fillText("__", x * 590, 400 - y * 400);
+    ctx.fillText("__", x * 590, 400 - y * 390);
 }
 
 function draw_distroke(ctx, i, x, y) {
-    ctx.fillText(idx_to_digraph(i), x * 590, 400 - y*400);
+    ctx.fillText(idx_to_digraph(i), x * 590, 400 - y*390);
 }
 
 function timing_graph(data) {
