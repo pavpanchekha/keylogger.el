@@ -3,17 +3,18 @@
 import sys
 import os
 
-INFILE  = sys.argv[1] if len(sys.argv) > 1 else os.path.expanduser("~/.emacs.d/keys")
-OUTFILE = sys.argv[2] if len(sys.argv) > 2 else "keys.jsonp"
+def create():
+    return [ [0.0, 0, 0.0] for i in range(96 * 96) ]
 
-with open(INFILE) as f:
+def read(f, data):
     # First line blank
     assert not f.readline().strip()
 
     # Second line has an array
     v = f.readline().strip()
     assert v and v[0] == "[" and v[-1] == "]"
-    data = [[float(s)] for s in v[1:-1].split()]
+    for i, s in enumerate(v[1:-1].split()):
+        data[i][0] += float(s)
     
     # Third line blank
     assert not f.readline().strip()
@@ -22,11 +23,32 @@ with open(INFILE) as f:
     v = f.readline().strip()
     assert v and v[0] == "[" and v[-1] == "]"
     for i, s in enumerate(v[1:-1].split()):
-        data[i].append(int(s))
+        data[i][1] += int(s)
 
-    assert len(data) == 96 * 96
+    # Fifth line blank
+    assert not f.readline().strip()
 
-with open(OUTFILE, "w") as f:
-    f.write("load_data(")
-    f.write(str(data))
-    f.write(")")
+    # Sixth line has another array
+    v = f.readline().strip()
+    assert v and v[0] == "[" and v[-1] == "]"
+    for i, s in enumerate(v[1:-1].split()):
+        data[i][2] += float(s)
+
+def main(files):
+    
+    data = create()
+    for file in files:
+        read(open(file, "rt"), data)
+    return data
+        
+if __name__ == "__main__":
+    files = sys.argv[1:]
+    
+    if not files:
+        print("USAGE: transform.py datafile [datafile ...] > keys.jsonp")
+        sys.exit(1)
+
+    data = main(files)
+    sys.stdout.write("load_data(")
+    sys.stdout.write(str(data))
+    sys.stdout.write(")")

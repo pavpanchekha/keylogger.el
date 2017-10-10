@@ -1,7 +1,7 @@
 // l and r stand for left and right; L and S for Lowercase and Shifted
 var hands = {
-    lL: ["az", "123wsx", "4ed", "56rtfgcv", " "],
-    lS: ["AZ", "!@#WSX", "$ED", "%^RTFGCV", ""],
+    lL: ["qaz", "123wsx", "4ed", "56rtfgcv", " "],
+    lS: ["QAZ", "!@#WSX", "$ED", "%^RTFGCV", ""],
     rL: [";'/", "pol0.", "9ik", "78yuhjnmb", ""],
     rS: [":\"", "POL)>", "(IK", "&*YUHJNMB", ""]
 }
